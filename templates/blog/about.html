@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}О блоге — Мой блог{% endblock %}
+
+{% block content %}
+    <h2>О блоге</h2>
+    <p>Этот блог создан для практики Django и изучения веб-разработки.</p>
+
+    <img src="{% static 'img/about_blog.png' %}" alt="О блоге" width="300">
+{% endblock %}

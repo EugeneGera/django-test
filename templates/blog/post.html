@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Пост — Мой блог{% endblock %}
+
+{% block content %}
+    <h2>Пример поста</h2>
+    <p><strong>Заголовок:</strong> Первый пост </p>
+    <p><strong>Автор:</strong> Евгений Герасимов</p>
+    <p><strong>Дата:</strong> 22 ноября 2025</p>
+
+    <p> Пример поста </p>
+
+    <img src="{% static 'img/post_example.png' %}" alt="Пример поста" width="300">
+{% endblock %}
