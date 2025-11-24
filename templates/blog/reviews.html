@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Отзывы — Мой блог{% endblock %}
+
+{% block content %}
+    <h2>Отзывы</h2>
+
+    <h3>Оставить отзыв</h3>
+    <p>Ваш отзыв появится на странице после проверки администратором.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить отзыв</button>
+    </form>
+
+    <hr>
+
+    <h3>Проверенные отзывы</h3>
+
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li style="margin-bottom: 15px;">
+                    <strong>{{ review.full_name }}</strong>
+                    (<a href="mailto:{{ review.email }}">{{ review.email }}</a>)<br>
+                    <em>{{ review.created_at|date:"d.m.Y H:i" }}</em><br>
+                    {{ review.text|linebreaksbr }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Пока нет ни одного проверенного отзыва.</p>
+    {% endif %}
+{% endblock %}
